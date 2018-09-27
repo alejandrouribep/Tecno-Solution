@@ -25,7 +25,7 @@
         <a class="nav-link" href="#">Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Clientes</a>
+        <%= link_to "Clientes", clients_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link"href="#">Servicios y Productos</a>
@@ -46,6 +46,8 @@
   </div>
 </nav>
     <div class="container-fluid">
+      <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
 
