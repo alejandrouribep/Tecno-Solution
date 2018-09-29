@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Services</h1>
+<h1>Servicios</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Client</th>
       <th>Category</th>
-      <th>Drescription</th>
+      <th>Description</th>
       <th>Price</th>
       <th colspan="3"></th>
     </tr>
@@ -16,13 +16,13 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.name %></td>
+        <td><%= service.client %></td>
         <td><%= service.category %></td>
-        <td><%= service.drescription %></td>
+        <td><%= service.description %></td>
         <td><%= service.price %></td>
         <td><%= link_to 'Ver', service %></td>
         <td><%= link_to 'Editar', edit_service_path(service) %></td>
-        <td><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
