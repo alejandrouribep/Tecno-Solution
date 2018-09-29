@@ -15,8 +15,8 @@ class ServicesTest < ApplicationSystemTestCase
     click_on "New Service"
 
     fill_in "Category", with: @service.category
-    fill_in "Drescription", with: @service.drescription
-    fill_in "Name", with: @service.name
+    fill_in "Client", with: @service.client
+    fill_in "Description", with: @service.description
     fill_in "Price", with: @service.price
     click_on "Create Service"
 
@@ -29,8 +29,8 @@ class ServicesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Category", with: @service.category
-    fill_in "Drescription", with: @service.drescription
-    fill_in "Name", with: @service.name
+    fill_in "Client", with: @service.client
+    fill_in "Description", with: @service.description
     fill_in "Price", with: @service.price
     click_on "Update Service"
 
