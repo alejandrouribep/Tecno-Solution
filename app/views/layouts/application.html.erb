@@ -49,8 +49,16 @@
   </div>
 </nav>
     <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+      <% if alert.present? %>
+      <div class="alert alert-danger fade show" role="alert">
+        <p class="alert"><%= alert %></p>
+      </div>
+      <% end %>
+      <% if notice.present? %>
+      <div class="alert alert-success fade show" role="alert">
+        <p class="notice"><%= notice %></p>
+      </div>
+      <% end %>
       <%= yield %>
     </div>
 
