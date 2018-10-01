@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @factura.users %>
+</p>
+
+<p>
+  <strong>Clients:</strong>
+  <%= @factura.clients %>
+</p>
+
+<p>
+  <strong>Products:</strong>
+  <%= @factura.products %>
+</p>
+
+<p>
+  <strong>Services:</strong>
+  <%= @factura.services %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @factura.fecha %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @factura.price %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @factura.details %>
+</p>
+
+<%= link_to 'Edit', edit_factura_path(@factura) %> |
+<%= link_to 'Back', facturas_path %>

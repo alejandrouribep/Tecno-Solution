@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_201533) do
+ActiveRecord::Schema.define(version: 2018_10_01_150706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2018_09_29_201533) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "facturas", force: :cascade do |t|
+    t.bigint "users_id"
+    t.bigint "clients_id"
+    t.bigint "products_id"
+    t.bigint "services_id"
+    t.date "fecha"
+    t.decimal "price"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clients_id"], name: "index_facturas_on_clients_id"
+    t.index ["products_id"], name: "index_facturas_on_products_id"
+    t.index ["services_id"], name: "index_facturas_on_services_id"
+    t.index ["users_id"], name: "index_facturas_on_users_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -55,4 +71,8 @@ ActiveRecord::Schema.define(version: 2018_09_29_201533) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "facturas", "clients", column: "clients_id"
+  add_foreign_key "facturas", "products", column: "products_id"
+  add_foreign_key "facturas", "services", column: "services_id"
+  add_foreign_key "facturas", "users", column: "users_id"
 end

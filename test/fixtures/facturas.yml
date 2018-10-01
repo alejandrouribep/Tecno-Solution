@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  users: one
+  clients: one
+  products: one
+  services: one
+  fecha: 2018-10-01
+  price: 9.99
+  details: MyString
+
+two:
+  users: two
+  clients: two
+  products: two
+  services: two
+  fecha: 2018-10-01
+  price: 9.99
+  details: MyString
