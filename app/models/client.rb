@@ -5,4 +5,5 @@ class Client < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   belongs_to :factura
 
+
 end

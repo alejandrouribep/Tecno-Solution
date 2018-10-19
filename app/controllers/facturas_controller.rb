@@ -6,7 +6,13 @@ class FacturasController < ApplicationController
   # GET /facturas.json
   def index
     @facturas = Factura.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf { render template: 'facturas/reporte', pdf: 'reporte' }
+    end
   end
+
 
   # GET /facturas/1
   # GET /facturas/1.json
@@ -70,6 +76,6 @@ class FacturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factura_params
-      params.require(:factura).permit(:users_id, :clients_id, :products_id, :services_id, :fecha, :price, :details)
+      params.require(:factura).permit(:user_id, :clients_id, :products_id, :services_id, :fecha, :price, :details)
     end
 end

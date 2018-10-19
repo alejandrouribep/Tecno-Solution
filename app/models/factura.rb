@@ -1,6 +1,7 @@
 class Factura < ApplicationRecord
-  belongs_to :users
-  belongs_to :clients
-  belongs_to :products
-  belongs_to :services
+  belongs_to :user, optional: true
+  belongs_to :client, optional: true
+  belongs_to :product, optional: true
+  belongs_to :service, optional: true
+
 end
