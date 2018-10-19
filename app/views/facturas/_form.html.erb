@@ -1,0 +1,52 @@
+<%= form_with(model: factura, local: true) do |form| %>
+  <% if factura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
+
+      <ul>
+      <% factura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :user_id , "Usuario"%>
+    <%= form.text_field :user_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :clients_id, "Cliente" %>
+    <%= form.text_field :clients_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :products_id, "Productos" %>
+    <%= form.text_field :products_id, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :services_id, "Servicios" %>
+    <%= form.text_field :services_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fecha, "Fecha" %>
+    <%= form.date_select :fecha, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price, "Precio" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :details, "Observaciones" %>
+    <%= form.text_field :details, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Registrar", class:"btn btn-primary" %>
+  </div>
+<% end %>

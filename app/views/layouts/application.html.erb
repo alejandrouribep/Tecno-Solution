@@ -34,7 +34,7 @@
         <%= link_to "Servicios", services_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Facturar</a>
+        <%= link_to "Facturar", facturas_path, class:"nav-link"%>
       </li>
     </ul>
 
@@ -59,8 +59,9 @@
         <p class="notice"><%= notice %></p>
       </div>
       <% end %>
-      <%= yield %>
+
     </div>
+<%= yield %>
 
   </body>
 </html>

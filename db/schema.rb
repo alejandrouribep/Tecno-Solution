@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_201533) do
+ActiveRecord::Schema.define(version: 2018_10_04_110139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,41 @@ ActiveRecord::Schema.define(version: 2018_09_29_201533) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "factura_products", force: :cascade do |t|
+    t.bigint "factura_id"
+    t.bigint "product_id"
+    t.decimal "quantity"
+    t.decimal "price"
+    t.decimal "total_price"
+    t.index ["factura_id"], name: "index_factura_products_on_factura_id"
+    t.index ["product_id"], name: "index_factura_products_on_product_id"
+  end
+
+  create_table "factura_services", force: :cascade do |t|
+    t.bigint "factura_id"
+    t.bigint "services_id"
+    t.decimal "price"
+    t.string "details"
+    t.decimal "total_price"
+    t.index ["factura_id"], name: "index_factura_services_on_factura_id"
+    t.index ["services_id"], name: "index_factura_services_on_services_id"
+  end
+
+  create_table "facturas", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "clients_id"
+    t.bigint "products_id"
+    t.bigint "services_id"
+    t.date "fecha"
+    t.decimal "price"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clients_id"], name: "index_facturas_on_clients_id"
+    t.index ["products_id"], name: "index_facturas_on_products_id"
+    t.index ["services_id"], name: "index_facturas_on_services_id"
   end
 
   create_table "products", force: :cascade do |t|
